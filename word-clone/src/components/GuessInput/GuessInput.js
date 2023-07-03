@@ -1,10 +1,11 @@
 import React from "react";
 
-function GuessInput() {
+function GuessInput({ addGuessResult }) {
   const [guess, setGuess] = React.useState("");
 
   function submitGuess(word) {
-    console.log(word);
+    console.log({ guess: word });
+    addGuessResult(word);
     setGuess("");
   }
 
@@ -18,6 +19,7 @@ function GuessInput() {
     >
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
         id="guess-input"
         type="text"
         value={guess}
